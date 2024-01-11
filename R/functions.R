@@ -426,9 +426,9 @@ anndata2seurat <- function(inFile, outFile = NULL, main_layer = "counts", assay 
     Seurat::Key(assays[[assay]]) <- paste0(tolower(assay), "_")
 
     if (main_layer == "scale.data" && !is.null(raw_X)) {
-      assays[[assay]]@meta.features <- raw_var_df
+      assays[[assay]]@meta.data <- raw_var_df
     } else {
-      assays[[assay]]@meta.features <- var_df
+      assays[[assay]]@meta.data <- var_df
     }
 
     project_name <- sub("\\.h5ad$", "", basename(inFile))
